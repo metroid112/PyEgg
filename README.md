@@ -1,0 +1,2 @@
+# PyEgg
+ Newegg Chrome Extension
