@@ -1,22 +1,14 @@
-(function(){
-"use strict";
-function ՐՏ_Iterable(iterable) {
-    var tmp;
-    if (iterable.constructor === [].constructor || iterable.constructor === "".constructor || (tmp = Array.prototype.slice.call(iterable)).length) {
-        return tmp || iterable;
-    }
-    if (Set && iterable.constructor === Set) {
-        return Array.from(iterable);
-    }
-    return Object.keys(iterable);
+async function getCotizacion() {
+    const puppeteer = require('puppeteer');
+    const browser = await puppeteer.launch({
+        headless: false
+    });
+    
+    const page = await browser.newPage();
+    await page.setRequestInterception(true);
+    
+    await page.goto('https://www.brou.com.uy/cotizaciones');
+    console.log('jejejejej');
+    return window.document.getElementsByClassName('valor')[5].textContent;    
 }
 
-(function(){
-
-    var __name__ = "__main__";
-
-    function hola() {
-        document.getElementById("result").innerHTML = "hola";
-    }
-})();
-})();
